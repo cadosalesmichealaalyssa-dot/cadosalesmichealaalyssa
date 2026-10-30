@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "dev": "tsx watch src/index.ts"
+ "scripts": {
+  "dev": "tsx watch src/index.ts",
+  "build": "tsc",
+  "start": "node dist/index.js",
+  "typeorm": "tsx ./node_modules/typeorm/cli.js",
+  "migration:generate": "npm run typeorm -- migration:generate -d src/config/data-source.ts src/migrations/InitialSchema",
+  "migration:revert": "npm run typeorm -- migration:revert -d src/config/data-source.ts",
+  "migration:run": "npm run typeorm -- migration:run -d src/config/data-source.ts"
   },
   "keywords": [],
   "author": "",
